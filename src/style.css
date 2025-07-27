@@ -1,0 +1,13 @@
+body {
+  background-color: rgb(238, 222, 238);
+  backdrop-filter: blur(8px);
+}
+
+.weather {
+  background-color: gray;
+  max-width: 600px;
+  margin: 45px auto;
+  box-shadow: 10px 10px 35px gray;
+  padding: 30px;
+  border-radius: 16px;
+}
