@@ -1,10 +1,13 @@
 body {
-  background-color: rgb(238, 222, 238);
-  backdrop-filter: blur(8px);
+  background: url("https://images.pexels.com/photos/1250260/pexels-photo-1250260.jpeg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 .weather {
-  background-color: rgb(182, 181, 181);
+  background-color: rgba(255, 255, 255, 0.158);
+  backdrop-filter: blur(10px);
   max-width: 600px;
   margin: 45px auto;
   box-shadow: 10px 10px 35px rgb(99, 91, 91);
@@ -50,7 +53,7 @@ main {
 .weather-details {
   font-size: 16px;
   line-height: 24px;
-  color: rgb(60, 57, 57);
+  color: rgb(19, 18, 18);
   font-weight: 500;
 }
 .weather-details strong {
@@ -79,7 +82,7 @@ main {
 }
 .forecast-day {
   text-align: center;
-  color: rgb(67, 67, 94);
+  color: rgb(32, 32, 88);
   font-size: 16px;
   line-height: 20px;
   margin-bottom: 10px;
