@@ -1,19 +1,19 @@
 function refreshWeather(response) {
-  let temperatureElement = document.querySelector('#temperature');
+  let temperatureElement = document.querySelector("#temperature");
   let temperature = response.data.temperature.current;
-  let cityElement = document.querySelector('#city');
-  let descriptionElement = document.querySelector('#description');
-  let humidityElement = document.querySelector('#humidity');
-  let windSpeedElement = document.querySelector('#wind-speed');
-  let timeElement = document.querySelector('#time');
+  let cityElement = document.querySelector("#city");
+  let descriptionElement = document.querySelector("#description");
+  let humidityElement = document.querySelector("#humidity");
+  let windSpeedElement = document.querySelector("#wind-speed");
+  let timeElement = document.querySelector("#time");
   let date = new Date(response.data.time * 1000);
-  let icon = document.querySelector('#icon');
+  let icon = document.querySelector("#icon");
 
   timeElement.innerHTML = formatDate(date);
   cityElement.innerHTML = response.data.city;
   descriptionElement.innerHTML = response.data.condition.description;
-  humidityElement.innerHTML = response.data.temperature.humidity + '%';
-  windSpeedElement.innerHTML = response.data.wind.speed + 'km/h';
+  humidityElement.innerHTML = response.data.temperature.humidity + "%";
+  windSpeedElement.innerHTML = response.data.wind.speed + "km/h";
   temperatureElement.innerHTML = Math.round(temperature);
   icon.innerHTML = `<img src="${response.data.condition.icon_url}" class="weather-app-icon" />`;
 }
@@ -22,13 +22,13 @@ function formatDate(date) {
   let minutes = date.getMinutes();
   let hours = date.getHours();
   let days = [
-    'Sunday',
-    'Monday',
-    'Tuesday',
-    'Wednesday',
-    'Thursday',
-    'Friday',
-    'Saturday',
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
   ];
   let day = date.getDay();
   if (minutes < 10) {
@@ -38,17 +38,18 @@ function formatDate(date) {
 }
 
 function searchCity(city) {
-  let apiUrl =
-    'https://api.shecodes.io/weather/v1/current?query=${city}&key=db5o125ffe7254a099d635f35et51cb4&units=metric ';
+  let apiKey = "db5o125ffe7254a099d635f35et51cb4";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+
   console.log(apiUrl);
   axios.get(apiUrl).then(refreshWeather);
 }
 
 function handleSearchSubmit(event) {
   event.preventDefault(); // Prevent the default form submission behavior
-  let searchInput = document.querySelector('#search-form-input');
+  let searchInput = document.querySelector("#search-form-input");
 
   searchCity(searchInput.value);
 } // Log the input value to the console
-let searchFormElement = document.querySelector('#search-form');
-searchFormElement.addEventListener('submit', handleSearchSubmit);
+let searchFormElement = document.querySelector("#search-form");
+searchFormElement.addEventListener("submit", handleSearchSubmit);
